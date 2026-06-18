@@ -313,30 +313,30 @@ kebiasaan campaign sejenis di histori.
    sebagai konteks sebelum membuat forecast.
 2. **Tab "🧠 Model & Performance"** — pahami cara model memprediksi, seberapa akurat, dan batasannya. Centang
    kotak persetujuan di bagian bawah tab ini untuk mengaktifkan tombol forecast.
-3. **Sidebar kiri "⚙️ Campaign Configuration"** — isi budget harian, funnel campaign, tanggal mulai, dan horizon
+3. **Tab "⚙️ Campaign Configuration"** — isi budget harian, funnel campaign, tanggal mulai, dan horizon
    forecast (1/3/7 hari).
-4. **Sidebar "📊 Scenario Settings"** — pilih satu atau beberapa skenario perubahan budget yang ingin dibandingkan
+4. Klik **"📊 Scenario Settings"** — pilih satu atau beberapa skenario perubahan budget yang ingin dibandingkan
    (atau centang "Single Forecast Only" untuk hasil baseline saja).
-5. Klik **"🎯 Generate Forecast & Scenarios"**.
+5. Klik **"🎯 Mulai Prediksi!"**.
 6. **Tab "🚀 Forecast Results"** — baca angka forecast, grafik tren, serta insight kecukupan & efisiensi budget;
    gunakan sebagai bahan pertimbangan, bukan keputusan final (selalu kombinasikan dengan konteks bisnis & kompetisi
    yang berjalan saat ini).
         """
     )
-st.divider()
+# st.divider()
 
-st.title("📋 Assumptions & Limitations")
-st.warning(
-    "1. Forecast berdasar pola historis, bukan kondisi pasar masa depan\n"
-    "2. Faktor eksternal (kompetitor, perubahan algoritma/platform, event mendadak) belum dimodelkan\n"
-    "3. Hanya tersedia horizon 1, 3, dan 7 hari\n"
-    "4. Gunakan sebagai alat bantu keputusan, bukan representasi pasti masa depan\n"
-    "5. Keandalan prediksi menurun seiring bertambahnya horizon (lihat tabel performa di atas)\n"
-    "6. Model dilatih dari data historis campaign Meta Ads brand/produk tertentu — hasil bisa kurang akurat "
-    "jika diterapkan ke brand, industri, atau platform iklan lain yang karakteristiknya sangat berbeda\n"
-    "7. Insight kecukupan & efisiensi budget di tab Forecast Results dihitung dari perbandingan statistik "
-    "(persentil) terhadap data historis funnel yang sama — bukan optimisasi budget yang menjamin hasil terbaik"
-)
+with st.expander("📋 Baca: Asumsi & Batasan Sistem  — klik untuk buka/tutup"):
+    st.warning(
+        "1. Forecast berdasar pola historis, bukan kondisi pasar masa depan\n"
+        "2. Faktor eksternal (kompetitor, perubahan algoritma/platform, event mendadak) belum dimodelkan\n"
+        "3. Hanya tersedia horizon 1, 3, dan 7 hari\n"
+        "4. Gunakan sebagai alat bantu keputusan, bukan representasi pasti masa depan\n"
+        "5. Keandalan prediksi menurun seiring bertambahnya horizon (lihat tabel performa di atas)\n"
+        "6. Model dilatih dari data historis campaign Meta Ads brand/produk tertentu — hasil bisa kurang akurat "
+        "jika diterapkan ke brand, industri, atau platform iklan lain yang karakteristiknya sangat berbeda\n"
+        "7. Insight kecukupan & efisiensi budget di tab Forecast Results dihitung dari perbandingan statistik "
+        "(persentil) terhadap data historis funnel yang sama — bukan optimisasi budget yang menjamin hasil terbaik"
+    )
 
 st.checkbox("✅ Saya memahami asumsi & limitasi sistem forecasting ini.", key="agree_terms")
 if not st.session_state.get("agree_terms"):
@@ -345,7 +345,7 @@ if not st.session_state.get("agree_terms"):
 
 st.divider()
 
-tab_eda, tab_info, tab_forecast = st.tabs(["📊 Data Historis", "🧠 Info Sistem", "🔮 Simulasi Budget (Forecaster)"])
+tab_eda, tab_info, tab_forecast = st.tabs(["📊 Data Understanding (EDA)", "🧠 Model & Performance", "⚙️ Campaign Configuration"])
 
 with tab_forecast:
     st.header("🚀 Pengaturan Iklan")
