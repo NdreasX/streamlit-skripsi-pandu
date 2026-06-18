@@ -318,7 +318,7 @@ kebiasaan campaign sejenis di histori.
 4. Klik **"📊 Scenario Settings"** — pilih satu atau beberapa skenario perubahan budget yang ingin dibandingkan
    (atau centang "Single Forecast Only" untuk hasil baseline saja).
 5. Klik **"🎯 Mulai Prediksi!"**.
-6. **Tab "🚀 Forecast Results"** — baca angka forecast, grafik tren, serta insight kecukupan & efisiensi budget;
+6. baca angka forecast, grafik tren, serta insight kecukupan & efisiensi budget;
    gunakan sebagai bahan pertimbangan, bukan keputusan final (selalu kombinasikan dengan konteks bisnis & kompetisi
    yang berjalan saat ini).
         """
