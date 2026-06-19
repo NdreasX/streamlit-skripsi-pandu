@@ -1,5 +1,5 @@
 # ============================================================================
-# CAMPAIGN NAVIGATOR: BUDGET ROI OPTIMIZER v4.1 (ENTERPRISE EDITION)
+# CAMPAIGN NAVIGATOR: BUDGET ROI OPTIMIZER
 # Features: Recursive Forecast, Smart Absorption, Bar Charts, Auto-Insights & Tooltips
 # ============================================================================
 
@@ -250,11 +250,12 @@ def render_forecast_dashboard(forecast_df, budget, funnel, scenario_name, hist_c
     # 2. Insights
     spend_ratio = (estimated_spend / budget) * 100 
     if spend_ratio < 70:
-        st.warning(f"🐢 Iklan Kurang Bensin (Penyerapan {spend_ratio:.1f}%)")
+        st.warning(f"📉 **Penyerapan Anggaran Rendah** ({spend_ratio:.1f}%) — Alokasi budget belum maksimal, optimalkan target audiens atau tingkatkan bid.")
     elif spend_ratio > 95:
-        st.error(f"🔥 Iklan Bocor Alus (Penyerapan {spend_ratio:.1f}%)")
+        st.error(f"⚠️ **Potensi Overspending** ({spend_ratio:.1f}%) — Anggaran hampir habis sepenuhnya, periksa efisiensi biaya iklan Anda.")
     else:
-        st.success(f"🎯 Jalan Mulus / Optimal (Penyerapan {spend_ratio:.1f}%)")
+        st.success(f"✅ **Kinerja Anggaran Efisien** ({spend_ratio:.1f}%) — Penyerapan budget optimal dan berjalan sesuai target.")
+
         
     # 3. Grafik
     col_chart1, col_chart2 = st.columns(2)
@@ -309,18 +310,15 @@ tertentu, sekaligus memberi insight apakah budget yang direncanakan sudah **cuku
 kebiasaan campaign sejenis di histori.
 
 **Langkah penggunaan:**
-1. **Tab "📊 Data Understanding (EDA)"** — pelajari pola historis campaign (tren CTR/CPC/klik, performa per hari)
-   sebagai konteks sebelum membuat forecast.
-2. **Tab "🧠 Model & Performance"** — pahami cara model memprediksi, seberapa akurat, dan batasannya. Centang
-   kotak persetujuan di bagian bawah tab ini untuk mengaktifkan tombol forecast.
-3. **Tab "⚙️ Campaign Configuration"** — isi budget harian, funnel campaign, tanggal mulai, dan horizon
-   forecast (1/3/7 hari).
-4. Klik **"📊 Scenario Settings"** — pilih satu atau beberapa skenario perubahan budget yang ingin dibandingkan
-   (atau centang "Single Forecast Only" untuk hasil baseline saja).
-5. Klik **"🎯 Mulai Prediksi!"**.
-6. baca angka forecast, grafik tren, serta insight kecukupan & efisiensi budget;
-   gunakan sebagai bahan pertimbangan, bukan keputusan final (selalu kombinasikan dengan konteks bisnis & kompetisi
-   yang berjalan saat ini).
+1. **Tab "📊 Data Understanding (EDA)"** — Pelajari pola historis kampanye (tren CTR, CPC, klik, dan performa harian) sebagai konteks dasar sebelum melakukan proyeksi.
+2. **Tab "🧠 Model & Performance"** — Pelajari cara kerja model, tingkat akurasi, serta batasannya.
+Centang kotak persetujuan di bagian bawah tab ini untuk mengaktifkan fitur prediksi.
+3. **Tab "⚙️ Campaign Configuration"** — Isi nominal anggaran harian, tahapan funnel, tanggal mulai kampanye, dan jangka waktu (horizon) prediksi (1, 3, atau 7 hari).
+4. Klik **"📊 Scenario Settings"** — Pilih satu atau beberapa skenario variasi anggaran yang ingin
+dibandingkan (atau cukup centang "Single Forecast Only" untuk melihat hasil baseline saja).
+5. Klik **"🎯 Mulai Prediksi!"**. — Tekan tombol untuk memulai proses kalkulasi model.
+6. Evaluasi Hasil Prediksi — Tinjau angka estimasi, grafik tren, serta analisis efisiensi anggaran.
+Gunakan hasil ini sebagai bahan pertimbangan strategis, bukan keputusan mutlak (tetap kombinasikan dengan dinamika bisnis dan kondisi kompetisi riil).
         """
     )
 # st.divider()
